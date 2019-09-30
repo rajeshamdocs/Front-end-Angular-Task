@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCOTrK0WwjWacjrvvhxty3Q7nus3YlsNxo'
+      apiKey: '//use your preferred Google Maps API Key'
     })
   ],
   providers: [],
