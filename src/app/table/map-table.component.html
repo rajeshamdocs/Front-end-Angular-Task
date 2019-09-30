@@ -1,0 +1,52 @@
+<h3>Pick the filter</h3>
+<div class="col">
+  <div class="row">
+    <select class="browser-default custom-select" [(ngModel)]="filterField">
+      <option *ngFor="let filter of filterProperties" [value]="filter">{{ filter.name }}</option>
+    </select>
+    <span>&nbsp;&nbsp;</span>
+    <input type="text" style="width: 120px" class="form-control-plaintext" [(ngModel)]="searchProp"/>
+</div>
+<table mat-table [dataSource]="dataSourceMap | datafilter : filterField : searchProp" class="table table-bordered">
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+            <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let mapData"> {{mapData.id}} </td>
+      </ng-container>
+    
+      <!-- Fuel Column -->
+      <ng-container matColumnDef="fuel_type_code">
+        <th mat-header-cell *matHeaderCellDef> Fuel </th>
+        <td mat-cell *matCellDef="let mapData"> {{mapData.fuel_type_code}} </td>
+      </ng-container>
+    
+      <!-- Station Name Column -->
+      <ng-container matColumnDef="station_name">
+        <th mat-header-cell *matHeaderCellDef> Station Name </th>
+        <td mat-cell *matCellDef="let mapData"> {{mapData.station_name}} </td>
+      </ng-container>
+    
+      <!-- City Column -->
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> City </th>
+        <td mat-cell *matCellDef="let mapData"> {{mapData.city}} </td>
+      </ng-container>
+    
+      <!-- Cards Accepted Column -->
+      <ng-container matColumnDef="cards_accepted">
+        <th mat-header-cell *matHeaderCellDef> Cards </th>
+        <td mat-cell *matCellDef="let mapData"> {{mapData.cards_accepted}} </td>
+      </ng-container>
+
+      <!-- LPG Accepted Column -->
+      <ng-container matColumnDef="lpg_primary">
+        <th mat-header-cell *matHeaderCellDef> LPG </th>
+        <td mat-cell *matCellDef="let mapData"> {{mapData.lpg_primary}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+    </table>
+</div>

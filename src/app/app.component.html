@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <agm-map [latitude]="lat" [longitude]="lng" #map>
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+      </div>
+      <map-table [dataSourceMap]="dataSource"></map-table>
+    </div>
+    <div class="row">
+      <map-chart [dataSourceMap]="dataSource"></map-chart>
+    </div>
+  </div>
+</div>

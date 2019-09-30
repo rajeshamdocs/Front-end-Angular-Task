@@ -1,0 +1,12 @@
+table
+{
+    width: 100%;
+    height: 200px;
+    max-height: 200px;
+    /* overflow-y: auto;
+    overflow-x: hidden; */
+}
+table.mat-table
+{
+    border: solid grey;
+}
